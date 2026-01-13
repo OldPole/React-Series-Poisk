@@ -2,27 +2,11 @@ import { Link } from '@tanstack/react-router';
 import { Menu, Search, X } from 'lucide-react';
 import { useState } from 'react';
 
-interface MenuItem {
-  label: string;
-  to: '/';
-}
-
-const MENU_ITEMS: MenuItem[] = [
-  { label: 'ТОП 100 популярных фильмов', to: '/' },
-  { label: 'ТОП 250 лучших фильмов', to: '/' },
-  { label: 'Семейный', to: '/' },
-  { label: 'Романтика', to: '/' },
-  { label: 'Вампиры', to: '/' },
-  { label: 'Комиксы', to: '/' },
-  { label: 'Зомби', to: '/' },
-  { label: 'Катастрофы', to: '/' },
-];
-
-const MAIN_CATEGORIES: MenuItem[] = [
-  { label: 'Фильмы', to: '/' },
-  { label: 'Сериалы', to: '/' },
-  { label: 'Мультфильмы', to: '/' },
-];
+import {
+  iconComponents,
+  MOVIE_LISTS,
+  TOP_LISTS,
+} from '../../constants/constants';
 
 export const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -61,11 +45,11 @@ export const Header = () => {
         className={`fixed inset-0 z-[60] ${isOpen ? 'visible' : 'invisible'}`}
       >
         <div
-          className={`absolute inset-0 bg-black/60 transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setOpen(false)}
         />
         <aside
-          className={`absolute top-0 left-0 h-full w-80 bg-zinc-900 transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`absolute top-0 left-0 h-full w-80 bg-zinc-900 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
         >
           <div className="flex items-center justify-between p-6">
             <span className="text-xl font-black text-red-600">SeriesPoisk</span>
@@ -77,30 +61,39 @@ export const Header = () => {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-4 px-4">
+          <nav className="flex max-h-[calc(100vh-100px)] flex-col gap-4 overflow-y-auto px-4">
             <div className="flex flex-col gap-1 border-b border-zinc-800 pb-4">
-              {MENU_ITEMS.map(item => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-4 rounded-lg px-3 py-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-blue-400"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {TOP_LISTS.map(({ title, icon, url }) => {
+                const Icon = iconComponents[icon];
+                return (
+                  <Link
+                    key={title}
+                    to={url}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-4 rounded-lg px-3 py-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-blue-400"
+                  >
+                    <Icon size={20} />
+                    <span className="text-[15px] font-medium">{title}</span>
+                  </Link>
+                );
+              })}
             </div>
+
             <div className="flex flex-col gap-1">
-              {MAIN_CATEGORIES.map(item => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-4 rounded-lg px-3 py-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-blue-400"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {MOVIE_LISTS.map(({ title, icon, url }) => {
+                const Icon = iconComponents[icon];
+                return (
+                  <Link
+                    key={title}
+                    to={url}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-4 rounded-lg px-3 py-2 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-blue-400"
+                  >
+                    <Icon size={20} />
+                    <span className="text-[15px] font-medium">{title}</span>
+                  </Link>
+                );
+              })}
             </div>
           </nav>
         </aside>
