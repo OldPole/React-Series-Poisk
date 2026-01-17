@@ -9,19 +9,8 @@
   "arrowParens": "avoid",
   "endOfLine": "lf",
 
-  "plugins": [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss"
-  ],
-  "importOrder": [
-    "^@/(.*)$",
-    "",
-    "^@core/(.*)$",
-    "",
-    "^@features/(.*)$",
-    "",
-    "^[./]"
-  ],
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": ["^@/(.*)$", "", "^@core/(.*)$", "", "^@features/(.*)$", "", "^[./]"],
   "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
   "importOrderTypeScriptVersion": "5.0.0"
 }
