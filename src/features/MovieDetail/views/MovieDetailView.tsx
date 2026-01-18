@@ -27,7 +27,7 @@ export const MovieDetailView = () => {
   if (isError || !movie) return ErrorMessage;
 
   return (
-    <div className="container mx-auto mt-[90px] px-4 pb-20">
+    <div className="container mx-auto mt-22.5 px-4 pb-20">
       <Button
         variant="ghost"
         className="mb-6 cursor-pointer pl-0 text-zinc-400 transition-colors duration-300 hover:bg-black hover:text-red-600"
@@ -154,7 +154,7 @@ export const MovieDetailView = () => {
                 key={item.filmId}
                 to="/movie/$movieId"
                 params={{ movieId: String(item.filmId) }}
-                className="group flex flex-col items-center md:w-[180px]"
+                className="group flex flex-col items-center md:w-45"
               >
                 <div className="relative w-full overflow-hidden rounded-xl transition-all">
                   <img
