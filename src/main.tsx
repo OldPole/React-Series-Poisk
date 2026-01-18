@@ -6,6 +6,7 @@ import '@/core/assets/css/App.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route as rootRoute } from '@/core/layouts/__root';
+import { movieDetailRoute } from '@/features/MovieDetail/moviesDetail.routes';
 import { moviesRoute } from '@/features/Movies/movies.routes';
 
 const queryClient = new QueryClient({
@@ -18,7 +19,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const routeTree = rootRoute.addChildren([moviesRoute]);
+const routeTree = rootRoute.addChildren([moviesRoute, movieDetailRoute]);
 
 export const router = createRouter({ routeTree, context: { queryClient } });
 

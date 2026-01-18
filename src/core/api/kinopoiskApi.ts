@@ -1,4 +1,4 @@
-const BASE_URL = 'https://kinopoiskapiunofficial.tech/api';
+const BASE_URL = 'https://kinopoiskapiunofficial.tech/api/';
 const API_KEY = import.meta.env.VITE_KINOPOISK_API_KEY;
 
 export const apiFetch = async <T>(endpoint: string): Promise<T> => {
@@ -11,6 +11,9 @@ export const apiFetch = async <T>(endpoint: string): Promise<T> => {
   });
 
   if (!response.ok) {
+    console.error(
+      `API Error: ${response.status} ${response.statusText} at ${endpoint}`,
+    );
     throw new Error(`Network error: ${response.status}`);
   }
 

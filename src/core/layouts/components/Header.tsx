@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Menu, Search, type LucideIcon } from 'lucide-react';
+import { Menu, type LucideIcon } from 'lucide-react';
 import {
   iconComponents,
   MOVIE_LISTS,
@@ -7,7 +7,6 @@ import {
 } from '@/core/constants/constants';
 import { type MenuItem } from '@/core/constants/constants.types';
 import { Button } from '@/core/ui/button';
-import { Input } from '@/core/ui/input';
 import {
   Sheet,
   SheetClose,
@@ -16,6 +15,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/core/ui/sheet';
+
+import { Search } from './Search';
 
 export const Header = () => {
   const renderLink = (item: MenuItem) => {
@@ -72,23 +73,13 @@ export const Header = () => {
 
           <Link
             to="/"
-            className="text-2xl font-black tracking-tighter text-red-600 uppercase transition-opacity hover:opacity-80"
+            className="text-2xl font-black tracking-tighter text-red-600 uppercase"
           >
             SeriesPoisk
           </Link>
         </div>
 
-        <div className="relative hidden md:block">
-          <Search
-            size={18}
-            className="absolute top-1/2 left-3 -translate-y-1/2 text-zinc-500"
-          />
-          <Input
-            type="search"
-            placeholder="Поиск фильмов и сериалов..."
-            className="w-80 border-zinc-800 bg-zinc-900/50 pl-10 focus-visible:ring-red-600 focus-visible:ring-offset-0"
-          />
-        </div>
+        <Search />
       </div>
     </header>
   );
