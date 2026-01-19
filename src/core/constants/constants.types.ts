@@ -16,4 +16,5 @@ export interface MenuItem {
   title: string;
   icon: IconName;
   url: string;
+  value: string;
 }

@@ -32,34 +32,54 @@ export const iconComponents = {
 
 export const TOP_LISTS: MenuItem[] = [
   {
-    title: 'ТОП 100 популярных фильмов',
-    icon: 'AutoAwesome' as IconName,
-    url: '/popular',
+    title: 'ТОП 100 популярных',
+    icon: 'AutoAwesome',
+    url: '/movies/popular',
+    value: 'TOP_POPULAR_ALL',
   },
   {
-    title: 'ТОП 250 лучших фильмов',
-    icon: 'StarPurple500' as IconName,
-    url: '/best',
+    title: 'ТОП 250 лучших',
+    icon: 'StarPurple500',
+    url: '/movies/best',
+    value: 'TOP_250_MOVIES',
   },
-  { title: 'Вампиры', icon: 'Bloodtype' as IconName, url: '/vampire' },
-  { title: 'Комиксы', icon: 'MenuBook' as IconName, url: '/comics' },
-  { title: 'Семейный', icon: 'FamilyRestroom' as IconName, url: '/family' },
   {
-    title: 'Романтика',
-    icon: 'VolunteerActivism' as IconName,
-    url: '/romantic',
+    title: 'Комиксы',
+    icon: 'MenuBook',
+    url: '/movies/comics',
+    value: 'COMICS_THEME',
   },
-  { title: 'Зомби', icon: 'MoodBad' as IconName, url: '/zombie' },
-  { title: 'Катастрофы', icon: 'Pool' as IconName, url: '/catastrophe' },
+  {
+    title: 'Семейный',
+    icon: 'FamilyRestroom',
+    url: '/movies/family',
+    value: 'FAMILY',
+  },
   {
     title: 'Популярные сериалы',
-    icon: 'LiveTv' as IconName,
-    url: '/popular-serials',
+    icon: 'LiveTv',
+    url: '/movies/popular-serials',
+    value: 'POPULAR_SERIES',
   },
 ];
 
 export const MOVIE_LISTS: MenuItem[] = [
-  { title: 'Фильмы', icon: 'LocalMovies' as IconName, url: '/films' },
-  { title: 'Сериалы', icon: 'Reorder' as IconName, url: '/serials' },
-  { title: 'Мультфильмы', icon: 'Fort' as IconName, url: '/cartoons' },
+  {
+    title: 'Фильмы',
+    icon: 'LocalMovies' as IconName,
+    url: '/films',
+    value: 'FILM',
+  },
+  {
+    title: 'Сериалы',
+    icon: 'Reorder' as IconName,
+    url: '/serials',
+    value: 'TV_SERIES',
+  },
+  {
+    title: 'Мультфильмы',
+    icon: 'Fort' as IconName,
+    url: '/cartoons',
+    value: 'FILM',
+  },
 ];

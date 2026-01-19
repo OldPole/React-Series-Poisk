@@ -7,7 +7,7 @@ export const MovieSectionSkeleton = () => (
       {[...Array(6)].map((_, i) => (
         <Skeleton
           key={i}
-          className="hidden aspect-[2/3] flex-1 rounded-md bg-zinc-900 first:block lg:block"
+          className="hidden aspect-2/3 flex-1 rounded-md bg-zinc-900 first:block lg:block"
         />
       ))}
     </div>

@@ -22,9 +22,9 @@ export const MovieDetailView = () => {
       ?.filter((employee: Staff) => employee.professionText === 'Актеры')
       .slice(0, 10) || [];
 
-  if (isPending) return MovieDetailSpinner;
+  if (isPending) return <MovieDetailSpinner />;
 
-  if (isError || !movie) return ErrorMessage;
+  if (isError || !movie) return <ErrorMessage />;
 
   return (
     <div className="container mx-auto mt-22.5 px-4 pb-20">

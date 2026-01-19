@@ -51,6 +51,7 @@ export const Search = () => {
                 <img
                   src={posterUrlPreview}
                   className="h-12 w-9 shrink-0 rounded object-cover"
+                  loading="lazy"
                   alt={nameRu}
                 />
                 <div className="min-w-0">

@@ -10,4 +10,9 @@ export interface Movie {
 export interface MovieResponse {
   total: number;
   items: Movie[];
+  totalPages: number;
+}
+
+export interface MovieSearch {
+  page: number;
 }

@@ -41,7 +41,7 @@ export const MoviesCarousel = ({ title, url, items }: MoviesCarouselProps) => {
                 params={{ movieId: String(kinopoiskId) }}
                 className="group space-y-3"
               >
-                <div className="aspect-[2/3]">
+                <div className="aspect-2/3">
                   <img
                     src={posterUrlPreview}
                     alt={nameRu}
