@@ -4,15 +4,17 @@ import { apiFetch } from '@/core/api/kinopoiskApi';
 import type { MovieResponse } from '@/core/api/kinopoiskApi.types';
 import { TOP_LISTS } from '@/core/constants/constants';
 
-export const useMoviesCategory = () => {
+import type { UseMoviesCategoryTop } from '../types/moviesListTop.types';
+
+export const useMoviesTop = (): UseMoviesCategoryTop => {
   const location = useLocation();
   const searchParams = new URLSearchParams(window.location.search);
   const page = Number(searchParams.get('page')) || 1;
 
-  const currentList = TOP_LISTS.find(l => l.url === location.pathname);
+  const currentList = TOP_LISTS.find(el => el.url === location.pathname);
 
   const query = useQuery({
-    queryKey: ['movies-list', location.pathname, page],
+    queryKey: ['movies-top', location.pathname, page],
     queryFn: () =>
       apiFetch<MovieResponse>(
         `/v2.2/films/collections?type=${currentList?.value}&page=${page}`,

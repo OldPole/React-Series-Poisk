@@ -12,7 +12,3 @@ export interface MovieResponse {
   items: Movie[];
   totalPages: number;
 }
-
-export interface MovieSearch {
-  page: number;
-}

@@ -4,11 +4,10 @@ import { MovieDetailSpinner } from '@/features/MovieDetail/components/MovieDetai
 
 import { ErrorMessage } from '../components/ErrorMessage';
 import { MoviesList } from '../components/MoviesList';
-import { useMoviesCategory } from '../hooks/useMoviesCategory';
+import { useMoviesTop } from '../hooks/useMoviesCategory';
 
 export const MoviesListTopView = () => {
-  const { data, isLoading, isError, currentList, currentPage } =
-    useMoviesCategory();
+  const { data, isLoading, isError, currentList, currentPage } = useMoviesTop();
 
   if (isLoading) return <MovieDetailSpinner />;
 
